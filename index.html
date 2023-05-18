@@ -1,695 +1,475 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
-   <link rel="stylesheet" href="./css/reset.css">
-   <link rel="stylesheet" href="./css/fullpage.css">
-   <link rel="stylesheet" href="./css/animate.min.css">
-   <link rel="stylesheet" href="./style2.css">
-   <link rel="stylesheet" href="./style.css">
-   <!-- 의존 라이브러리 번들한 파일 로드 -->
-<script src="https://unpkg.com/type-hangul"></script>
-   <style>
-        @font-face {
-            font-family: 'simple';
-            src: url(./font/NEXON\ Lv1\ Gothic\ OTF\ Light.otf)
-        }
-        @font-face {
-            font-family: 'simple2';
-            src: url(./font/NEXON\ Lv1\ Gothic\ OTF.otf);
-        }
-        @font-face {
-            font-family: 'simple3';
-            src: url(./font/SEBANG\ Gothic\ OTF\ Bold.otf)
-        }
-        @font-face {
-            font-family: 'simple4';
-            src: url(./font/NotoSansKR-Light.otf);
-        }
-        
-        body{font-family: 'simple2'; font-size: 14px;}
-        .lnb{ width: 100%; display: flex; justify-content: end; padding-right: 2%; opacity: 99999; }
-        .section{height: 100vh;}
-        /* header end */
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/fullpage.css" />
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    <link rel="stylesheet" href="./css/style2.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/index.css" />
 
-        .mainP{
-            width: 100%; text-align: center; background-image: url(./images/stair.gif);
-            background-repeat: no-repeat; background-position: 50%; 
-           position: relative;
-         }
-        
-        .mainP h1{
-            font-size: 60px;    
-            letter-spacing: 0.1em;
-            word-spacing: 0.1em;
-            font-family: 'simple3';
-            padding-top: 3em;
-        }
-        .mainP>h2{
-            font-size: 18px;
-            line-height: 1.6em;
-            word-spacing: 0.3em;
-            font-family: 'simple';
-            font-weight: 800;
-           position: relative; top: -25%;
-        }
-        /* mainpage end */
-        .secondP>h2{text-align: center; font-size: 30px; transform: translateY(-170%);}
-        .profile{
-            width: 90%; height: 500px; display: flex; margin: auto; padding: 1em;
-        }
-        .profile>div{
-            width: 50%; margin: auto;
-        }
-        .proImg{ display: flex;  }
-        .proImg>img{
-            width: 37%; height: fit-content;
-        }
-        .Imgtext{ margin: auto; font-size: 18px; 
-            text-align: left;  line-height: 2.5em;
-            font-family: 'simple3';
-        }
-        .Imgtext span{ color: rgb(30, 51, 244);}
-        
-        .proEx{width: 100%; 
-            display: flex; justify-content: space-between; 
-        }
-        .proEx h2{line-height: 3em; font-size: 18px;}
-        .proEx p{
-            line-height: 2em;  font-weight: 200; font-size: 14px; color: rgb(86, 86, 86);
-        }
-        .yearN{padding-right: 2.3em; }
-        .yearN>p{line-height: 2.5em;}
-        .doList>p{line-height: 2.5em; color:#000;}
-        .coMent{
-            font-family: 'simple';
-        }
-        /* second end */
-        
-        .centerS{width:100%; text-align: center; position: relative; top: -13%; font-size: 30px;  }
-        .icon{width: 80%;  margin: auto; display: flex; transform: translateY(5%);}
-        .icon .iconPng{width:50%; height: 50%; padding: 2em; }
-        .iconPng>p{padding: 1em 0 0 0; line-height: 1.5em; color: rgb(95, 95, 95);} 
-        .iconBar{width: 100%; display: flex; flex-direction: column; }
-        .iconBar>img{width: 60px;}
-        .iconBar span{display: block; font-size: 16px; padding-bottom: 1em;}
-        .iconBar>div{border: 2px solid rgb(163, 163, 163); border-radius: 20px; margin:1em 0 1em 0; }
-        /* skill end */
-
-        .forthP>h2{width: 100%; text-align: center; transform: translateY(-180%); font-size: 30px;}
-        .box{
-            width:70%; height: 800px ;  margin: auto; display: flex; flex-wrap: wrap;
-            
-        }
-        .contentP{
-            width: 70%; height: 800px;  background-color: rgba(210, 211, 211, 0.678); 
-            overflow-y: scroll; scroll-behavior:smooth;
-        }
-        .example{width: 30%; margin: auto;}
-        .example>div{width: 100%; margin: auto; transform:translate(10%,-90%)}
-        .example h3{font-size: 16px; line-height: 4em; text-align: center;}
-        .example p{ text-align: center; line-height: 2em;}
-        .contentP>div{width: 100%; height:auto; }
-        .sweetP img{width: 100%; height:auto;}
-        .usingT{color: brown; font-weight: bold;}
-
-        .bannerP{
-            width: 70%;  display: flex; flex-wrap: wrap; margin: auto; padding-left: 6em; 
-        }
-        .bannerP img{
-            width: 420px; height: fit-content;
-        }
-        .smallB{
-            width:70% ;  margin: auto; display: flex; padding-left: 4em; padding-top: 1em;
-        }
-        .smallB>.smallP{
-            width: 60%;  display: flex; flex-wrap: wrap; margin: auto;
-            position: relative; top: -50%;
-         }
-        .smallP img{
-            width: 220px; height: auto; 
-        }
-        .smallPop{
-            width: 40%; padding-left: 2em;
-        }
-        .smallPop img{
-            width: 200px;
-        }
-        .entre{
-            width: 20%; margin: auto; padding-left:250px;
-        }
-        .entre img{
-            width: 110px; 
-        }
-        .slideF{ display: flex; width: 100%;}
-        .dangG{ width: 80%; height: 1000px;
-           margin: auto;
-        }
-        .dangG img{
-            width: 680px; 
-        }
-        /* portfolio end */
-
-        footer{width: 100%; height: 100vh; 
-            background-repeat: no-repeat; background-size: 0px; background-color: antiquewhite;
-        }
-        .callMe{width: 500px; height: 600px; margin: auto; transform: translateY(-10%);
-                background-color: rgb(116, 190, 243); border-radius: 80px 80px 40px 0px;
-        }
-        .callMe h3{ font-family: 'simple3'; color: rgb(42, 42, 42);
-            text-align: center; padding: 4em 0; line-height: 3em; font-size: 28px;}
- 
-        .callMe div{ width: 500px; margin: auto; padding-left: 4.5em; }
-        .footerText p{color: #ffffff; font-family: 'simple3';
-           }
-        .footerText span{color: #000; text-decoration: 4px underline rgba(248, 244, 254, 0.632);}
-
-        .contactR{
-            width: 100px; height: 50px;  opacity: 999999; margin: auto;
-            position: relative; transform: translate(600%, -170%);
-        }
-        .contactR p{text-align: center; padding-top: 1.1em; font-family: 'simple2';}
-        .contactR img{width: 30px;  }
-        .arrow{position: relative; transform: translate(200%, -80%);}
-        .arrow2{position: relative; transform: translate(150%, -80%);}
-
-        .yearN>.noColor{color: transparent;}
-    /* footer end */
-        .section:nth-of-type(4){background-color: rgb(217, 241, 251); height: 500px;}
-      
-
-      h1{height: 400px; text-align: center;}
-      .silde{text-align: center; font-size: 100px;}
-      .fp-slidesNav ul{display: flex; justify-content:center;}
-      .inner{width: 1000px; height: 500px; margin: auto;}
-      .innerBox1{width: 1000px; height: 500px; background-color: black; color: white;
-                  margin: auto;}
-      .innerBox2{border: 2px double rgb(115, 115, 114); background-color:rgb(240, 247, 252); box-shadow: #000;}
-      .fp-controlArrow.fp-next{right: 100px;}
-      .fp-controlArrow.fp-prev{left: 100px;}
-      .fp-slidesNav ul{display: flex; justify-content: center; height: 200px;
+    <!-- 의존 라이브러리 번들한 파일 로드 -->
+    <script src="https://unpkg.com/type-hangul"></script>
+  </head>
+  <body>
+    <style>
+      .lnb {
+        width: 100%;
+        height: 55px;
+        background-color: black;
+        position: fixed;
+        z-index: 99;
+        top: 0;
       }
-      #fp-nav ul li:hover .fp-tooltip, 
-      .horizontalImg{ text-align: center; width: 100%; height: 90%; }
+      .lnb ul {
+        display: flex;
+        justify-content: space-evenly;
+      }
+      .lnb a {
+        color: #fff;
+        display: block;
+        padding: 1.2em 3em 0.7em 3em;
+      }
+    </style>
 
+    <style type="text/css">
+      * {
+        cursor: url(https://cur.cursors-4u.net/cursors/cur-8/cur756.cur), auto !important;
+      }
+    </style>
+    <a
+      href="https://www.cursors-4u.com/cursor/2011/02/22/buff-22.html"
+      target="_blank"
+      title="Buff"
+      ><img
+        src="https://cur.cursors-4u.net/cursor.png"
+        border="0"
+        alt="Buff"
+        style="position: absolute; top: 0px; right: 0px"
+    /></a>
+    <header id="header section">
+      <nav class="lnb">
+        <ul>
+          <li><a href="#pages01">main</a></li>
+          <li><a href="#pages02">about</a></li>
+          <li><a href="#pages03">skill</a></li>
+          <li><a href="#pages04">portfolio</a></li>
+          <li><a href="#pages05">contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="fullpage">
+      <div class="section content mainP active">
+        <h1 id="target">NEXT LEVEL</h1>
+        <h2 class="animate__animated animate__fadeIn">
+          항상 다음단계로 도약하는<br />
+          <span style="color: blue; font-family: 'simple2'"
+            >프론트엔드개발자 김희빈</span
+          >입니다.
+        </h2>
+      </div>
 
-
-
-      *:before, *:after {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-html {
-  min-height: 100vh;
-  display: grid;
-}
-
-
-
-.container {
-  margin: auto;
-  width: 4rem;
-  height: 2rem;
-  
-}
-
-.heart {
-  position: absolute; left: 70%; top: 75%;
-}
-.heart:nth-child(1) svg {
-  opacity: 0;
-  -webkit-animation: heartUp 1.4s infinite ease-in;
-  animation: heartUp 1.4s infinite ease-in;
-}
-.heart:nth-child(2) svg {
-  position: absolute;
-  left: 1rem;
-  opacity: 0;
-  -webkit-animation: heartUp 1.4s 0.3s infinite ease-in;
-  animation: heartUp 1.4s 0.3s infinite ease-in;
-}
-.heart:nth-child(3) svg {
-  position: absolute;
-  left: 0.5rem;
-  opacity: 0;
-  -webkit-animation: heartUp 1.4s 0.6s infinite ease-in;
-  animation: heartUp 1.4s 0.6s infinite ease-in;
-}
-
-svg {
-  fill: #f58d9c;
-}
-
-@-webkit-keyframes heartUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0) rotate(10deg);
-    transform: translate3d(0, 0, 0) rotate(10deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -35vh, 0) scale(1.2) rotate(-10deg);
-    transform: translate3d(0, -35vh, 0) scale(1.2) rotate(-10deg);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-@keyframes heartUp {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0) rotate(10deg);
-    transform: translate3d(0, 0, 0) rotate(10deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  65% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -35vh, 0) scale(1.2) rotate(-10deg);
-    transform: translate3d(0, -35vh, 0) scale(1.2) rotate(-10deg);
-  }
-  100% {
-    opacity: 0;
-  }
-}
-   </style>
-</head>
-<body>
-
-<style>
-   .lnb{width: 100%; height: 55px; background-color:black;
-   position: fixed; z-index: 99; top: 0; }
-   .lnb ul{display: flex; justify-content: space-evenly;}
-   .lnb a{color: #fff; display: block; padding: 1.2em 3em 0.7em 3em;}
-</style>
-
-<style type="text/css">* {cursor: url(https://cur.cursors-4u.net/cursors/cur-8/cur756.cur), auto !important;}</style>
-<a href="https://www.cursors-4u.com/cursor/2011/02/22/buff-22.html" target="_blank" title="Buff"><img src="https://cur.cursors-4u.net/cursor.png" border="0" alt="Buff" style="position:absolute; top: 0px; right: 0px;" /></a>
-<header id="header section">
-   <nav class="lnb">
-      <ul>
-         <li><a href="#pages01">main</a></li>
-         <li><a href="#pages02">about</a></li>
-         <li><a href="#pages03">skill</a></li>
-         <li><a href="#pages04">portfolio</a></li>
-         <li><a href="#pages05">contact</a></li>
-       
-      </ul>
-   </nav>
-</header>
-<div id="fullpage">
-   <div class="section content mainP active" > 
-        <h1  id="target">NEXT LEVEL</h1> 
-        <h2 class="animate__animated animate__fadeIn">항상 다음단계로 도약하는<br>
-       <span style="color: blue; font-family: 'simple2';">웹퍼블리셔 김희빈</span>입니다.</h2>
-   </div>
-
-	<div class="section content secondP">
-        <h2>About </h2>
-         <div class="inner innerBox2">
-            <div class="profile ">
-                <div class="proImg">
-                            
-                    <img src="./images/이력서 사진.jpeg" alt="김희빈">
-                    <div class="Imgtext animate__animated animate__swing animate__infinite">
-                        안녕하세요 <br>
-                        프론트엔드개발자<br>
-                        <span  >김희빈</span>입니다 :)
-                    </div>       
-                </div>
-
-                <div class="proEx">
-                    
-                    <div class="yearN">
-                        
-                        <p>~Ing</p>
-                        <p>2022.02 ~ 2022.03</p>
-                        <p>2021.10 ~ 2022.01</p>
-                        <p>2019.10 ~ 2021.07</p>
-                        <p class="noColor">2019.10 ~ 2021.07</p>
-                        <p>2016.12 ~ 2017.07</p>
-                        <p class="noColor">2016.12 ~ 2017.07</p>
-                    </div>
-                    
-                    <div class="doList">
-                        <p>유투브 강의 듣기 </p>
-                        <p>스파르타코딩클럽 웹 개발 초급과정 수료</p>
-                        <p>굿잡아카데미 uiux 웹퍼블리셔 양성과정 수료 </p>
-                        <p>ZARA 리테일 코리아 근무<br>
-                            <span class="coMent">(캐셔담당, 신입교육)</span>
-                        </p>
-                       
-                        <p>정상어학원&엠코드학원 사무직 근무 <br>
-                            <span class="coMent">(통신문, 시험지 제작)</span>
-                        </p>
-                       
-                    </div>
-                   
-                </div>
-                
-
+      <div class="section content secondP">
+        <h2>About</h2>
+        <div class="inner innerBox2">
+          <div class="profile">
+            <div class="proImg">
+              <img src="./images/이력서 사진.jpeg" alt="김희빈" />
+              <div
+                class="Imgtext animate__animated animate__swing animate__infinite"
+              >
+                안녕하세요 <br />
+                프론트엔드개발자<br />
+                <span>김희빈</span>입니다 :)
+              </div>
             </div>
-         </div>
-   </div>
-	<div class="content thirdP section">
+
+            <div class="proEx">
+              <div class="yearN">
+                <p>2022.04 ~ 2023.01</p>
+                <p>2022.02 ~ 2022.03</p>
+                <p>2021.10 ~ 2022.01</p>
+                <p>2019.10 ~ 2021.07</p>
+                <p class="noColor">2019.10 ~ 2021.07</p>
+                <p>2016.12 ~ 2017.07</p>
+                <p class="noColor">2016.12 ~ 2017.07</p>
+              </div>
+
+              <div class="doList">
+                <p>디앤디모바일 근무</p>
+                <p>스파르타코딩클럽 웹 개발 초급과정 수료</p>
+                <p>굿잡아카데미 uiux 웹퍼블리셔 양성과정 수료</p>
+                <p>
+                  ZARA 리테일 코리아 근무<br />
+                  <span class="coMent">(캐셔담당, 신입교육)</span>
+                </p>
+
+                <p>
+                  정상어학원&엠코드학원 사무직 근무 <br />
+                  <span class="coMent">(통신문, 시험지 제작)</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content thirdP section">
         <h2 class="centerS">Skill</h2>
         <div class="icon">
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="./images/ps.png" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar5" >
-                          </div>                       
-                        </div> 
-                      </div>
-                <span><b>photoshop</b> 90%</span> 
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/ps.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar5"></div>
                 </div>
-                
-                <p>제품의 누끼를 따거나 디자인툴을 사용하여<br>
-                    배너나 홍보물을 만들 수 있고,<br>
-                    웹 사이트 디자인시안도 가능합니다.</p> 
+              </div>
+              <span><b>photoshop</b> 90%</span>
             </div>
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar6" >
-                          </div>                       
-                        </div> 
-                      </div>
-                    <span><b>react</b> 65%</span>
-                    
+
+            <p>
+              제품의 누끼를 따거나 디자인툴을 사용하여<br />
+              배너나 홍보물을 만들 수 있고,<br />
+              웹 사이트 디자인시안도 가능합니다.
+            </p>
+          </div>
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/js.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar6"></div>
                 </div>
-                
-                <p>ReactJS를 활용한<br> SPA 개발 경험이 있습니다.</p> 
+              </div>
+              <span><b>react</b> 65%</span>
             </div>
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="./images/js.png" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar1" >
-                          </div>                       
-                        </div> 
-                      </div>
-                    <span><b>figma</b> 80%</span>
-                    
+
+            <p>
+              ReactJS를 활용한<br />
+              SPA 개발 경험이 있습니다.
+            </p>
+          </div>
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/js.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar1"></div>
                 </div>
-                
-                <p>
-                    디자인시안을 만들 수 있으며, <br>
-                    interaction을 구축할 수 있습니다.
-                </p> 
+              </div>
+              <span><b>figma</b> 80%</span>
             </div>
-            
-        
+
+            <p>
+              디자인시안을 만들 수 있으며, <br />
+              interaction을 구축할 수 있습니다.
+            </p>
+          </div>
         </div>
 
         <div class="icon">
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="./images/css.png" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar2" >
-                          </div>                       
-                        </div> 
-                      </div>
-                    <span><b>css</b>  87%</span>
-                
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/css.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar2"></div>
                 </div>
-                
-                <p>html로 만든 구조물에 <br>
-                    애니메이션 효과나, 움직임, 반응형 웹을 <br>디자인 및 제작 가능합니다.</p> 
+              </div>
+              <span><b>css</b> 87%</span>
             </div>
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="./images/html.png" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar7" >
-                          </div>                       
-                        </div> 
-                      </div>
-                    <span><b>html</b>  92%</span>
-                
-                </div>
-                
-                <p>웹표준 및 웹접근성에 준수하는<br> 마크업을 할 수 있습니다.</p> 
-            </div>
-            <div class="iconPng">
-                <div class="iconBar">
-                    <img src="./images/js.png" alt="">
-                    <div class="contain2">    
-                        <div class="progress2 progress-moved">
-                          <div class="progress-bar4" >
-                          </div>                       
-                        </div> 
-                      </div>
-                    <span><b> javascipt/jquery</b>  65%</span>
-                
-                </div>
-                
-                <p>자바스크립트 지식을 기반으로 <br>플러그인을 사용할 수 있고<br> 코드분석이 가능합니다.</p> 
-            </div>
-        </div>
-    </div>
 
-	<div class="content forthP section">
-        <h2>
-            Portfolio</h2>
-        <div class="horizontalImg">  
-            
-            <div class="box" >
-                <div class="contentP">
-                    <div class="sweetP">
-                        <a href="https://huibinkim.github.io/sweet-potato/"> <img src="./images/sweet.png" alt=""></a>
-                    </div>
+            <p>
+              html로 만든 구조물에 <br />
+              애니메이션 효과나, 움직임, 반응형 웹을 <br />디자인 및 제작
+              가능합니다.
+            </p>
+          </div>
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/html.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar7"></div>
                 </div>
-                <div class="example">
-                   <div>
-                        <h3>구마씨</h3>
-                        <p>
-                            고구마 판매 사이트 리뉴얼 <br>
-                            (메인페이지+서브4개)<br>
-                        기존의 딱딱하고 촌스러운 사이트를<br>
-                        아기자기하고 친숙한 스타일로 <br>
-                        리뉴얼했습니다.
-                        </p>
-                        <p class="usingT">
-                            html, css, illustration, photoshop, jquery
-                        </p>
-
-                   </div>
-                       
-                   
-                </div>
+              </div>
+              <span><b>html</b> 92%</span>
             </div>
+
+            <p>
+              웹표준 및 웹접근성에 준수하는<br />
+              마크업을 할 수 있습니다.
+            </p>
+          </div>
+          <div class="iconPng">
+            <div class="iconBar">
+              <img src="./images/js.png" alt="" />
+              <div class="contain2">
+                <div class="progress2 progress-moved">
+                  <div class="progress-bar4"></div>
+                </div>
+              </div>
+              <span><b> javascipt/jquery</b> 65%</span>
+            </div>
+
+            <p>
+              자바스크립트 지식을 기반으로 <br />플러그인을 사용할 수 있고<br />
+              코드분석이 가능합니다.
+            </p>
+          </div>
         </div>
+      </div>
+
+      <div class="content forthP section">
+        <h2>Portfolio</h2>
         <div class="horizontalImg">
-            <div class="box" >
-                <div class="contentP">
-                    <div class="sweetP">
-                        <a href="https://huibinkim.github.io/slowglow/"> <img src="./images/slowglow.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="example">
-                   <div>
-                        <h3>Slowglow</h3>
-                        <p>
-                        다이어트식품 사이트 리뉴얼<br>
-                        (반응형으로 제작)<br>
-                        글이 많고 정리가 안되어 보여<br>
-                        깔끔한 느낌으로 제작하였습니다.<br>
-                        
-                        </p>
-                        <p class="usingT">
-                            html, css, illustration, photoshop, jquery
-                        </p>
-
-                   </div>
-                       
-                   
-                </div>
-            </div> 
-        </div>
-		<div class="horizontalImg">
-            <div class="box" >
-                <div class="contentP">
-                    <div class="sweetP">
-                        <a href="https://huibinkim.github.io/canvas/"> <img src="" alt=""></a>
-                    </div>
-                </div>
-                <div class="example">
-                   <div>
-                        <h3>그림판</h3>
-                        <p>
-                        순수 javascript로 제작한<br>
-                        그림판입니다.<br>
-                        <canvas>태그를 이용하였습니다.<br>
-                        
-                        </p>
-                        <p class="usingT">
-                            html, css, javascript
-                        </p>
-
-                   </div>
-                       
-                   
-                </div>
-            </div> 
-        </div>
-        <div class="horizontalImg">
-            <div class="bannerP">
-                <img src="./banner/main03.png" alt="">
-                <img src="./banner/mainbanner_01.png" alt="">
-                <img src="./banner/mainbanner04.png" alt="">
-                <img src="./banner/banner2.png" alt="">
-                <img src="./banner/banner_03.png" alt="">
-                <img src="./banner/subbanner.png" alt="">
-               
+          <div class="box">
+            <div class="contentP">
+              <div class="sweetP">
+                <a href="https://huibinkim.github.io/sweet-potato/">
+                  <img src="./images/sweet.png" alt=""
+                /></a>
+              </div>
             </div>
-        </div>
-        <div class="horizontalImg"> 
-            <div class="smallB">
-                <div class="smallP">
-                    <img src="./banner/smallbanner03.png" alt="">
-                    <img src="./banner/smallbanner05.png" alt="">
-                    <img src="./banner/edu-1.png" alt="">    
-                    <img src="./banner/Instagram post - TONE29.png" alt="">    
-                </div>
-                <div class="smallPop">
-                    <img src="./banner/popup.png" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="horizontalImg slideF"> 
-            <div class="entre">
-                <a href="./images/entre.png"><img src="./images/entre.png" alt=""></a>
-            </div>
-            <div class="dangG">
-               <a href="./images/당근 최종.png"> <img src="./images/당근 최종.png" alt=""></a>
-            </div>
-        </div>
-    </div>
-
-	<div class="content footer">
-        <div class="callMe">
-            <h3 class="animate__animated animate__bounce animate__infinite animate__slow ">지금까지 봐주셔서 감사합니다 😄</h3>
-
-            <div class="footerText">
-                <p style="font-size: 20px;  text-align: left; font-weight: bolder; line-height: 2em;">
-                    <br>
-                  NAME /<span>Kim huibin</span><br>
-                    TEL / <span>010.5220.8095</span><br>
-                   EMAIL / <span>abc00127@naver.com</span>
+            <div class="example">
+              <div>
+                <h3>구마씨</h3>
+                <p>
+                  고구마 판매 사이트 리뉴얼 <br />
+                  (메인페이지+서브4개)<br />
+                  기존의 딱딱하고 촌스러운 사이트를<br />
+                  아기자기하고 친숙한 스타일로 <br />
+                  리뉴얼했습니다.
                 </p>
+                <p class="usingT">html, css, illustration, photoshop, jquery</p>
+              </div>
             </div>
-            
+          </div>
+        </div>
+        <div class="horizontalImg">
+          <div class="box">
+            <div class="contentP">
+              <div class="sweetP">
+                <a href="https://huibinkim.github.io/slowglow/">
+                  <img src="./images/slowglow.png" alt=""
+                /></a>
+              </div>
+            </div>
+            <div class="example">
+              <div>
+                <h3>Slowglow</h3>
+                <p>
+                  다이어트식품 사이트 리뉴얼<br />
+                  (반응형으로 제작)<br />
+                  글이 많고 정리가 안되어 보여<br />
+                  깔끔한 느낌으로 제작하였습니다.<br />
+                </p>
+                <p class="usingT">html, css, illustration, photoshop, jquery</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="horizontalImg">
+          <div class="box">
+            <div class="contentP">
+              <div class="sweetP">
+                <a href="https://huibinkim.github.io/canvas/">
+                  <img src="./images/canvas.png" alt="그림판 이미지"
+                /></a>
+              </div>
+            </div>
+            <div class="example">
+              <div>
+                <h3>그림판</h3>
+                <p>
+                  순수 javascript로 제작한<br />
+                  그림판입니다.<br />
+                  canvas 태그를 이용하였습니다.<br />
+                </p>
+                <p class="usingT">html, css, javascript</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="horizontalImg">
+          <div class="bannerP">
+            <img src="./banner/main03.png" alt="" />
+            <img src="./banner/mainbanner_01.png" alt="" />
+            <img src="./banner/mainbanner04.png" alt="" />
+            <img src="./banner/banner2.png" alt="" />
+            <img src="./banner/banner_03.png" alt="" />
+            <img src="./banner/subbanner.png" alt="" />
+          </div>
+        </div>
+        <div class="horizontalImg">
+          <div class="smallB">
+            <div class="smallP">
+              <img src="./banner/smallbanner03.png" alt="" />
+              <img src="./banner/smallbanner05.png" alt="" />
+              <img src="./banner/edu-1.png" alt="" />
+              <img src="./banner/Instagram post - TONE29.png" alt="" />
+            </div>
+            <div class="smallPop">
+              <img src="./banner/popup.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="horizontalImg slideF">
+          <div class="entre">
+            <a href="./images/entre.png"
+              ><img src="./images/entre.png" alt=""
+            /></a>
+          </div>
+          <div class="dangG">
+            <a href="./images/당근 최종.png">
+              <img src="./images/당근 최종.png" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content footer">
+        <div class="callMe">
+          <h3
+            class="animate__animated animate__bounce animate__infinite animate__slow"
+          >
+            지금까지 봐주셔서 감사합니다 😄
+          </h3>
+
+          <div class="footerText">
+            <p
+              style="
+                font-size: 20px;
+                text-align: left;
+                font-weight: bolder;
+                line-height: 2em;
+              "
+            >
+              <br />
+              NAME /<span>Kim huibin</span><br />
+              GITHUB /<span
+                ><a href="https://github.com/huibinkim"> 클릭해주세요</a></span
+              ><br />
+              EMAIL / <span>abc00127@naver.com</span>
+            </p>
+          </div>
         </div>
         <div class="contactR">
-           <p><a href="./이력서_20220214.pdf"> 이력서 보기 <img class="arrow" src="./images/ddd.png" alt=""><img class="arrow2" src="./images/ddd.png" alt=""></a></p>
+          <p>
+            <a href="./이력서_20220214.pdf">
+              이력서 보기
+              <img class="arrow" src="./images/ddd.png" alt="" /><img
+                class="arrow2"
+                src="./images/ddd.png"
+                alt=""
+            /></a>
+          </p>
         </div>
         <div class="container">
-            <div class="heart">
-              <svg width="80" height="80" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
-                <path d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z" />
-              </svg>
-            </div>
-            <div class="heart">
-              <svg width="70" height="70" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
-                <path d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z" />
-              </svg>
-            </div>
-            <div class="heart">
-              <svg width="68" height="68" viewBox="0 0 800 700" xmlns="http://www.w3.org/2000/svg">
-                <path d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z" />
-              </svg>
-            </div>
+          <div class="heart">
+            <svg
+              width="80"
+              height="80"
+              viewBox="0 0 800 700"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z"
+              />
+            </svg>
+          </div>
+          <div class="heart">
+            <svg
+              width="70"
+              height="70"
+              viewBox="0 0 800 700"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z"
+              />
+            </svg>
+          </div>
+          <div class="heart">
+            <svg
+              width="68"
+              height="68"
+              viewBox="0 0 800 700"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m263.42 235.15c-66.24 0-120 53.76-120 120 0 134.76 135.93 170.09 228.56 303.31 87.574-132.4 228.56-172.86 228.56-303.31 0-66.24-53.76-120-120-120-48.048 0-89.402 28.37-108.56 69.188-19.161-40.817-60.514-69.188-108.56-69.188z"
+              />
+            </svg>
+          </div>
         </div>
-
-        
+      </div>
     </div>
+    <!-- 헤더나 푸터같은 메뉴 등은 디자인으로 고정한다.  -->
 
-</div>
-<!-- 헤더나 푸터같은 메뉴 등은 디자인으로 고정한다.  -->
+    <script src="./js/jquery-3.6.0.min.js"></script>
+    <script src="./js/jquery.easing.1.3.js"></script>
+    <script src="./js/fullpage.js"></script>
+    <script>
+      TypeHangul.type("#target");
+      $(function () {
+        $("#fullpage").fullpage({
+          controlArrows: true, //슬라이더의 좌우 버튼을 숨김.
+          verticalCentered: false,
+          //  sectionsColor : ['tomato', 'tan', 'teal', 'thistle', 'turquoise', 'yellow', 'goldenrod'],
+          paddingTop: "13em",
+          paddingBottom: "13em",
+          paddingLeft: "13em",
+          paddingRight: "13em",
+          //Custom selectors
+          sectionSelector: ".content",
+          slideSelector: ".horizontalImg",
+          scrollingSpeed: 1000, //페이지간 이동속도
+          anchors: ["pages01", "pages02", "pages03", "pages04", "pages05"],
+          css3: true, //easingcss3를 사용할 경우만 true
+          easingcss3: "ease",
+          easing: "easeOutBounce",
+          scrollingSpeed: 700,
+          loopTop: true, //무한 루프
+          loopBottom: true,
+          loopHorizontal: true, //controlArrows:true,
+          autoScrolling: true,
+          scrollBar: false, //autoScrolling : true 인 경우만 가능
+          touchSensitivity: false,
+          navigation: true, //true이면 indecatior 나온다.
+          navigationPosition: "left", // 'right'
+          navigationTooltips: [
+            "pages01",
+            "pages02",
+            "pages03",
+            "pages04",
+            "pages05",
+          ],
+          //indecator에 마우스오버시 설명글 나타남.
+          showActiveTooltip: false, //indecator의 말풍선이 마우스오버없이도 나타남.
+          slidesNavigation: false,
+          slidesNavPosition: "bottom",
 
+          afterLoad: function (anchorLink, index) {
+            if (index == 1) {
+              $(".mainP").addClass("animated zoomIn");
+            }
+          },
+        });
+      });
+      // $(body).mousemove(function(event){
+      //     let posX = parseInt($('mouseImg').width() / 2);
+      //     let posY = parseInt($('mouseImg').height() / 2);
 
-<script src="./js/jquery-3.6.0.min.js"></script>
-<script src="./js/jquery.easing.1.3.js"></script>
-<script src="./js/fullpage.js"></script>
-<script>
-    TypeHangul.type('#target');
-   $(function(){
-      $('#fullpage').fullpage({
-         controlArrows:true, //슬라이더의 좌우 버튼을 숨김. 
-         verticalCentered:false,
-        //  sectionsColor : ['tomato', 'tan', 'teal', 'thistle', 'turquoise', 'yellow', 'goldenrod'],
-         paddingTop: '13em',
-         paddingBottom: '13em',
-         paddingLeft: '13em',
-         paddingRight: '13em',
-        //Custom selectors
-         sectionSelector: '.content',
-         slideSelector: '.horizontalImg',
-         scrollingSpeed: 1000, //페이지간 이동속도
-         anchors:['pages01','pages02','pages03','pages04','pages05'],
-         css3: true, //easingcss3를 사용할 경우만 true
-	      easingcss3: 'ease',
-         easing: 'easeOutBounce',
-         scrollingSpeed: 700,
-         loopTop: true,//무한 루프
-         loopBottom: true,  
-         loopHorizontal: true, //controlArrows:true, 
-         autoScrolling: true,
-         scrollBar : false,  //autoScrolling : true 인 경우만 가능
-         touchSensitivity:false,
-         navigation:true, //true이면 indecatior 나온다.
-         navigationPosition: 'left', // 'right'
-         navigationTooltips:['pages01','pages02','pages03','pages04','pages05'],
-                     //indecator에 마우스오버시 설명글 나타남.
-         showActiveTooltip:false, //indecator의 말풍선이 마우스오버없이도 나타남.
-         slidesNavigation:false, 
-         slidesNavPosition:'bottom',
-
-         afterLoad: function(anchorLink,  index){
-           if(index == 1){
-               $('.mainP').addClass('animated zoomIn')
-           }
-         }
-        });  
-
-        
-    });
-    // $(body).mousemove(function(event){
-    //     let posX = parseInt($('mouseImg').width() / 2);
-    //     let posY = parseInt($('mouseImg').height() / 2);
-
-    //     $('mouseImg').css({
-    //         'left':event.clientX - poxX,
-    //         'top': event.clientY - posY
-    //     })
-    // })
-   
-
-
-
-</script>
-</body>
+      //     $('mouseImg').css({
+      //         'left':event.clientX - poxX,
+      //         'top': event.clientY - posY
+      //     })
+      // })
+    </script>
+  </body>
 </html>
